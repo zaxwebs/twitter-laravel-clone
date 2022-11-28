@@ -5,7 +5,7 @@
 			<x-author :user="$user"/>
 			<div>{{ $body }}</div>
 			@if ($image)
-				<img class="w-full rounded-2xl mt-3 border object-cover" src="{{ asset($image) }}"/>
+				<img style="max-height: 510px" class="w-full rounded-2xl mt-3 border object-cover" src="{{ asset($image) }}"/>
 			@endif
 			@if($tweet)
 				<div class="border rounded-2xl mt-3 overflow-hidden">
@@ -17,7 +17,7 @@
 						<div>{{ $tweet->body }}</div>
 					</div>
 					@if ($tweet->image)
-						<img class="w-full object-cover" src="{{ asset($tweet->image) }}"/>
+						<img style="max-height: 510px" class="w-full object-cover" src="{{ asset($tweet->image) }}"/>
 					@endif
 				</div>
 			@endif
