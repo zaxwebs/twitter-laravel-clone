@@ -8,12 +8,17 @@
 				<img class="w-full rounded-2xl mt-3 border object-cover" src="{{ asset($image) }}"/>
 			@endif
 			@if($tweet)
-				<div class="p-3 border rounded-2xl mt-3">
-					<div class="flex gap-x-1 items-center">
-						<x-d-p :image="$tweet->user->display_picture" size="5"/>
-						<x-author :user="$tweet->user"/>
+				<div class="border rounded-2xl mt-3 overflow-hidden">
+					<div class="p-3">
+						<div class="flex gap-x-1 items-center">
+							<x-d-p :image="$tweet->user->display_picture" size="5"/>
+							<x-author :user="$tweet->user"/>
+						</div>
+						<div>{{ $tweet->body }}</div>
 					</div>
-					<div>{{ $tweet->body }}</div>
+					@if ($tweet->image)
+						<img class="w-full object-cover" src="{{ asset($tweet->image) }}"/>
+					@endif
 				</div>
 			@endif
 			<div class="flex justify-between mt-2 text-gray-500">
