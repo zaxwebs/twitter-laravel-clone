@@ -28,29 +28,23 @@ class DatabaseSeeder extends Seeder
         $users = User::factory($numbers['users'])->create();
 		$hashtags = Hashtag::factory($numbers['hashtags'])->create();
 
+		// Tweets
+
 		$tweets = [];
 		$imageCount = 0;
 
-		for($i = 0; $i <= $numbers['tweets']; $i++) {
+		for($i = 0; $i < $numbers['tweets']; $i++) {
 			
 			//setup & defaults
 			$date = Carbon::now();
 			$image = '';
 
-			if(rand(1,100) <= 50) {
-				// 50% of tweets should have images
-				$image = '';
-			} else {
-				if(rand(1,100) <= 30) {
-					// 30% of tweets should have images
-					$imageCount++;
-					$imageIndex = $imageCount % $numbers['seeder_photos'];
-					$imageIndex = $imageIndex === 0 ? $numbers['seeder_photos'] : $imageIndex;
-					$image = 'seeder/photos/' . $imageIndex . '.jpg';
-				} else {
-					// 20% of tweets should have retweets
-					// TODO
-				}
+			if(rand(1,100) <= 30) {
+				// 30% of tweets should have images
+				$imageCount++;
+				$imageIndex = $imageCount % $numbers['seeder_photos'];
+				$imageIndex = $imageIndex === 0 ? $numbers['seeder_photos'] : $imageIndex;
+				$image = 'seeder/photos/' . $imageIndex . '.jpg';
 			}
 
 			$tweets[] = [
@@ -94,16 +88,17 @@ class DatabaseSeeder extends Seeder
 		\DB::table('mentions')->insert($mentions);
 
 		//Retweets
-		foreach ($tweets->random(10) as $tweet) {
-				$retweet = $tweets->random();
-				$date = Carbon::now()->subDays(rand(0, 4))->format('Y-m-d H:i:s');
+		$mentions = [];
+		foreach($tweets->where('image', '') as $tweet) {
+			if(rand(1,100) <= 20) {
 				$mentions[] = [
-					'mentionnable_id' => $retweet->id,
+					'mentionnable_id' => $tweets->where('tweet_id', '!=', $tweet->id)->random()->id,
                     'mentionnable_type' => 'App\Models\Tweet',
                     'tweet_id' => $tweet->id,
 					'created_at' => $date,
 					'updated_at' => $date
 				];
+			}
 		}
 		\DB::table('mentions')->insert($mentions);
 

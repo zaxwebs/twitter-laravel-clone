@@ -13,8 +13,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
+    <body class="flex justify-center bg-slate-100">
+        <div class="font-sans text-gray-900 bg-white antialiased">
             {{ $slot }}
         </div>
     </body>
