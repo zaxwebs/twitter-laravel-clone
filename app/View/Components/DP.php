@@ -6,15 +6,17 @@ use Illuminate\View\Component;
 
 class DP extends Component
 {
+	public $image;
 	public $size;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($size = '12')
+    public function __construct($image, $size = '12')
     {
         //
+		$this->image = $image;
 		$this->size = $size;
     }
 

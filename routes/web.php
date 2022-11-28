@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/area51', function () {
-	$tweets = Tweet::latest()->limit(20)->with(['user', 'tweets' => ['user']])->get()->shuffle();
+	$tweets = Tweet::latest()->limit(20)->with(['user', 'tweets' => ['user']])->get();
     return view('area51')->with('tweets', $tweets);
 });
 

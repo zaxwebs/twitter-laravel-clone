@@ -18,12 +18,50 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-		// User::factory()->create([
-        //     'name' => 'Zack Webster',
-        //     'email' => 'zack@example.com',
-        // ]);
-        $users = User::factory(30)->hasTweets(2)->create();
-		$hashtags = Hashtag::factory(40)->create();
+		$numbers = [
+			'users' => 20,
+			'hashtags' => 40,
+			'tweets' => 140,
+			'seeder_photos' => 10
+		];
+
+        $users = User::factory($numbers['users'])->create();
+		$hashtags = Hashtag::factory($numbers['hashtags'])->create();
+
+		$tweets = [];
+		$imageCount = 0;
+
+		for($i = 0; $i <= $numbers['tweets']; $i++) {
+			
+			//setup & defaults
+			$date = Carbon::now();
+			$image = '';
+
+			if(rand(1,100) <= 50) {
+				// 50% of tweets should have images
+				$image = '';
+			} else {
+				if(rand(1,100) <= 30) {
+					// 30% of tweets should have images
+					$imageCount++;
+					$imageIndex = $imageCount % $numbers['seeder_photos'];
+					$imageIndex = $imageIndex === 0 ? $numbers['seeder_photos'] : $imageIndex;
+					$image = 'seeder/photos/' . $imageIndex . '.jpg';
+				} else {
+					// 20% of tweets should have retweets
+					// TODO
+				}
+			}
+
+			$tweets[] = [
+				'user_id' => $users->random()->id,
+				'body' => fake()->paragraph(1),
+				'image' => $image,
+				'created_at' => $date,
+				'updated_at' => $date
+			];
+		}
+		\DB::table('tweets')->insert($tweets);
 
 		// Mentions
 		
@@ -40,6 +78,7 @@ class DatabaseSeeder extends Seeder
                 ];
             }
         }
+
 		foreach ($users as $user) {
             foreach ($tweets->random(rand(0, 2)) as $tweet) {
 				$date = Carbon::now()->subDays(rand(0, 4))->format('Y-m-d H:i:s');

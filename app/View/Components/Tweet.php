@@ -6,18 +6,20 @@ use Illuminate\View\Component;
 
 class Tweet extends Component
 {
-	public $body;
 	public $user;
+	public $body;
+	public $image;
 	public $tweet;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($user, $body, $tweet)
+    public function __construct($user, $body, $image, $tweet)
     {
 		$this->user = $user;
         $this->body = $body;
+		$this->image = $image;
 		$this->tweet = $tweet;
     }
 

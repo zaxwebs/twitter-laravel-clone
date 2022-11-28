@@ -1,14 +1,16 @@
 <div class="p-3 border-b">
 	<div class="flex gap-x-3">
-		<x-d-p/>
+		<x-d-p :image="$user->display_picture"/>
 		<div class="grow">
 			<x-author :user="$user"/>
 			<div>{{ $body }}</div>
-			<img class="w-full rounded-2xl mt-3 border object-cover" src="{{ asset('seeder/photos/10.jpg') }}"/>
+			@if ($image)
+				<img class="w-full rounded-2xl mt-3 border object-cover" src="{{ asset($image) }}"/>
+			@endif
 			@if($tweet)
 				<div class="p-3 border rounded-2xl mt-3">
 					<div class="flex gap-x-1 items-center">
-						<x-d-p size="5"/>
+						<x-d-p :image="$tweet->user->display_picture" size="5"/>
 						<x-author :user="$tweet->user"/>
 					</div>
 					<div>{{ $tweet->body }}</div>
