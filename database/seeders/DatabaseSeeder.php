@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Hashtag;
 use App\Models\Tweet;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\File;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,7 +32,7 @@ class DatabaseSeeder extends Seeder
 		// Tweets
 
 		$tweets = [];
-		$imageCount = 0;
+		$files = collect(File::files(public_path('seeder/photos')));
 
 		for($i = 0; $i < $numbers['tweets']; $i++) {
 			
@@ -41,10 +42,8 @@ class DatabaseSeeder extends Seeder
 
 			if(rand(1,100) <= 30) {
 				// 30% of tweets should have images
-				$imageCount++;
-				$imageIndex = $imageCount % $numbers['seeder_photos'];
-				$imageIndex = $imageIndex === 0 ? $numbers['seeder_photos'] : $imageIndex;
-				$image = 'seeder/photos/' . $imageIndex . '.jpg';
+				$image = 'seeder/photos/' . $files->random()->getFilename();
+				
 			}
 
 			$tweets[] = [
@@ -88,6 +87,7 @@ class DatabaseSeeder extends Seeder
 		\DB::table('mentions')->insert($mentions);
 
 		//Retweets
+
 		$mentions = [];
 		foreach($tweets->where('image', '') as $tweet) {
 			if(rand(1,100) <= 20) {
