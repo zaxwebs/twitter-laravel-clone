@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\User;
@@ -38,7 +39,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/{user:username}', function (User $user) {
-});
+Route::get('/{user:username}', [UserController::class, 'show']);
 
 require __DIR__.'/auth.php';

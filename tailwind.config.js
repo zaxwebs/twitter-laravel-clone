@@ -20,6 +20,8 @@ module.exports = {
 	
 	safelist: [
 		'h-12',
-		'w-12'
+		'w-12',
+		'h-32',
+		'w-32',
 	]
 };

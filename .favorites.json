@@ -1,0 +1,56 @@
+[
+    {
+        "type": "Directory",
+        "name": "e:\\Software\\laragon\\www\\tweet\\resources\\views",
+        "parent_id": null,
+        "fsPath": "e:\\Software\\laragon\\www\\tweet\\resources\\views",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "52oJumFlfNzQMrVy"
+    },
+    {
+        "type": "Directory",
+        "name": "e:\\Software\\laragon\\www\\tweet\\app\\Http\\Controllers",
+        "parent_id": null,
+        "fsPath": "e:\\Software\\laragon\\www\\tweet\\app\\Http\\Controllers",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "eDbpRW6cuZlUgV2P"
+    },
+    {
+        "type": "Directory",
+        "name": "e:\\Software\\laragon\\www\\tweet\\app\\Models",
+        "parent_id": null,
+        "fsPath": "e:\\Software\\laragon\\www\\tweet\\app\\Models",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "TVLQB6vZlgCeNxHm"
+    },
+    {
+        "type": "Directory",
+        "name": "e:\\Software\\laragon\\www\\tweet\\app\\View\\Components",
+        "parent_id": null,
+        "fsPath": "e:\\Software\\laragon\\www\\tweet\\app\\View\\Components",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "42sLgoBQAIV6aFmE"
+    },
+    {
+        "type": "Directory",
+        "name": "e:\\Software\\laragon\\www\\tweet\\database",
+        "parent_id": null,
+        "fsPath": "e:\\Software\\laragon\\www\\tweet\\database",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "9k2QyzrqHfJCm7bj"
+    },
+    {
+        "type": "File",
+        "name": "e:\\Software\\laragon\\www\\tweet\\routes\\web.php",
+        "parent_id": null,
+        "fsPath": "e:\\Software\\laragon\\www\\tweet\\routes\\web.php",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "R8HMQWgxXwrdyGvh"
+    }
+]

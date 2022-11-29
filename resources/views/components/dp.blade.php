@@ -1,1 +1,1 @@
-<img class="rounded-full h-{{ $size }} w-{{ $size }} bg-gray-400 shrink-0 object-cover" src="{{ asset($image) }}"/>
+<img {{ $attributes->merge(['class' => 'rounded-full bg-gray-400 shrink-0 object-cover h-'.$size.' w-'.$size]) }} src="{{ asset($image) }}"/>
