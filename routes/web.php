@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\User;
@@ -27,7 +28,7 @@ Route::get('/', function () {
 Route::get('/area51', function () {
 	$tweets = Tweet::latest()->limit(40)->with(['user', 'tweets' => ['user']])->get();
     return view('area51')->with('tweets', $tweets);
-});
+})->name('area51');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -38,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 require __DIR__.'/auth.php';
 
