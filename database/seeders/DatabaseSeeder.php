@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
 			'users' => 20,
 			'hashtags' => 40,
 			'tweets' => 140,
-			'seeder_photos' => 10
 		];
 
         $users = User::factory($numbers['users'])->create();
