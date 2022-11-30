@@ -1,6 +1,10 @@
 <div class="p-4 border-b">
 	<div class="flex gap-x-3">
-		<x-d-p :image="$user->display_picture"/>
+		<div class="shrink-0" >
+			<a  href="{{ route('user.show', ['user' => $user]) }}">
+				<x-d-p :image="$user->display_picture"/>
+			</a>
+		</div>
 		<div class="grow">
 			<x-author :user="$user"/>
 			<div>{{ $body }}</div>
@@ -11,7 +15,9 @@
 				<div class="border rounded-2xl mt-3 overflow-hidden">
 					<div class="p-4">
 						<div class="flex gap-x-1 items-center">
-							<x-d-p :image="$tweet->user->display_picture" size="5"/>
+							<a  href="{{ route('user.show', ['user' => $tweet->user]) }}">
+								<x-d-p :image="$tweet->user->display_picture" size="5"/>
+							</a>
 							<x-author :user="$tweet->user"/>
 						</div>
 						<div>{{ $tweet->body }}</div>
