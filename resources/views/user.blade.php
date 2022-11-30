@@ -1,7 +1,9 @@
 <x-main-layout>
 	<div class="px-4 py-1">
 		<div class="flex items-center gap-10">
-			<a class="w-9 h-9 hover:bg-gray-200 flex items-center justify-center rounded-full -ml-2" href="#"><x-feathericon-arrow-left /></a>
+			<a class="w-9 h-9 hover:bg-gray-200 flex items-center justify-center rounded-full -ml-2" href="#">
+				<x-feathericon-arrow-left />
+			</a>
 			<div>
 				<div class="font-bold flex gap-x-1 items-center">
 					<span class="text-xl">{{ $user->name }}</span>
