@@ -1,5 +1,5 @@
 <x-main-layout>
-	<div class="px-4 h-14 flex  items-center">
+	<div class="px-4 py-2 flex items-center sticky top-0 bg-white/80 backdrop-blur-md">
 		<div class="flex gap-10 items-center">
 			<a class="w-9 h-9 hover:bg-gray-200 flex items-center justify-center rounded-full -ml-2"
 				href="{{ url()->previous() }}">
@@ -41,5 +41,8 @@
 		@foreach ($tweets as $tweet)
 		<x-tweet :user="$tweet->user" :body="$tweet->body" :image="$tweet->image" :tweet="$tweet->tweets->first()" />
 		@endforeach
+	</div>
+	<div class="px-4 py-2 flex items-center sticky bottom-0 bg-white border-t">
+		Hello World
 	</div>
 </x-main-layout>
