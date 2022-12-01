@@ -17,7 +17,7 @@
 
 		</div>
 	</div>
-	<img class="object-cover bg-gray-300 aspect-[3/1]" src="{{ asset($user->cover_image) }}" />
+	<img class="object-cover bg-gray-300 aspect-[3/1] w-full" src="{{ asset($user->cover_image) }}" />
 	<div class="p-4">
 		<div class="flex mb-3 justify-between">
 			<x-d-p class="border-4 border-white -mt-20" :image="$user->display_picture" size="32" />
