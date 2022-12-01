@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-bottom-bar-layout>
 	<div class="px-4 py-2 flex items-center sticky top-0 bg-white/90 backdrop-blur-md">
 		<div class="flex gap-10 items-center">
 			<a class="w-9 h-9 hover:bg-gray-200 flex items-center justify-center rounded-full -ml-2"
@@ -42,18 +42,4 @@
 		<x-tweet :user="$tweet->user" :body="$tweet->body" :image="$tweet->image" :tweet="$tweet->tweets->first()" />
 		@endforeach
 	</div>
-	<div class="px-4 flex items-center sticky bottom-0 bg-white border-t border-gray-100 text-2xl justify-around">
-		<a href="#" class="p-3">
-			<x-bx-home-circle class="h-7 w-7" />
-		</a>
-		<a href="#" class="p-3">
-			<x-bx-search class="h-7 w-7" />
-		</a>
-		<a href="#" class="p-3">
-			<x-bx-bell class="h-7 w-7" />
-		</a>
-		<a href="#" class="p-3">
-			<x-bx-envelope class="h-7 w-7" />
-		</a>
-	</div>
-</x-main-layout>
+</x-bottom-bar-layout>
