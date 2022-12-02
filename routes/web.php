@@ -27,8 +27,9 @@ Route::get('/', function () {
 });
 
 Route::get('/area51', function () {
-	$tweets = Tweet::latest()->limit(40)->with(['user', 'tweets' => ['user']])->get();
-	return view('area51')->with('tweets', $tweets);
+	$x = User::find(1)->following;
+	dd($x);
+	return view('area51', compact('x'));
 })->name('area51');
 
 Route::get('/dashboard', function () {
