@@ -57,6 +57,16 @@ class User extends Authenticatable
 		return $this->belongsToMany(User::class, 'follows', 'followed_user_id', 'user_id');
 	}
 
+	public function isFollowing(User $user)
+	{
+		return !!$this->following()->where('follow_id', $user->id)->count();
+	}
+
+	public function isFollowedBy(User $user)
+	{
+		return !!$this->followers()->where('user_id', $user->id)->count();
+	}
+
 	public function mentions()
 	{
 		return $this->morphMany(Mention::class, 'mentionnable');
