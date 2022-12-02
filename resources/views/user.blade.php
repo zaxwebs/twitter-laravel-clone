@@ -22,9 +22,11 @@
 		<div class="flex mb-3 justify-between">
 			<x-d-p class="border-4 border-white -mt-20" :image="$user->display_picture" size="32" />
 			@if(auth()->id() !== $user->id)
-			<form>
-				<button
-					class="bg-black hover:bg-gray-800 text-white font-semibold px-4 py-1.5 rounded-full">Follow</button>
+			<form method="POST" action="{{ route('follow', ['user' => $user]) }}">
+				@csrf
+				<button class="bg-black hover:bg-gray-800 text-white font-semibold px-4 py-1.5 rounded-full">
+					Follow
+				</button>
 			</form>
 			@endif
 		</div>
