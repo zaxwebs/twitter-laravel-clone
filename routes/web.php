@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
-	Route::post('/follow/{user:username}', [FollowController::class, 'store'])->name('follow');
+	Route::post('/follow/{user:username}', [FollowController::class, 'toggleFollow'])->name('follow');
 });
 
 
