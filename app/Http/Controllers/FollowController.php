@@ -13,11 +13,15 @@ class FollowController extends Controller
 	//
 	public function toggleFollow(Request $request, User $user)
 	{
-
-		$follow = new Follow;
-		$follow->user_id = Auth::user()->id;
-		$follow->followed_user_id = $user->id;
-		$follow->save();
+		$currentUser = Auth::user();
+		if ($currentUser->isFollowing($user)) {
+			$currentUser->following()->detach($user);
+		} else {
+			$follow = new Follow;
+			$follow->user_id = $currentUser->id;
+			$follow->followed_user_id = $user->id;
+			$follow->save();
+		}
 
 		return Redirect::back();
 	}
