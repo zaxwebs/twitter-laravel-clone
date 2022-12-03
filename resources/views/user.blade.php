@@ -50,11 +50,11 @@
 			</div>
 		</div>
 		<div class="flex gap-5 text-sm">
-			<a href="#" class="hover:underline">
+			<a href="{{ route('user.followers', ['user' => $user])  }}" class="hover:underline">
 				<span class="font-medium">{{ $user->followers->count() }}</span>
 				<span class="text-gray-500 ">Followers</span>
 			</a>
-			<a href="#" class="hover:underline ">
+			<a href="{{ route('user.following', ['user' => $user])  }}" class="hover:underline ">
 				<span class="font-medium">{{ $user->following->count() }}</span>
 				<span class="text-gray-500 ">Following</span>
 			</a>

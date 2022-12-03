@@ -13,7 +13,7 @@ class Author extends Component
 	 *
 	 * @return void
 	 */
-	public function __construct($user, $stacked = flase)
+	public function __construct($user, $stacked = false)
 	{
 		//
 		$this->user = $user;
