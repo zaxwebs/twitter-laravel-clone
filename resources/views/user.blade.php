@@ -1,5 +1,5 @@
 <x-bottom-bar-layout>
-	<div class="px-4 py-2 flex items-center sticky top-0 bg-white/90 backdrop-blur-md">
+	<div class="px-4 py-2 flex items-center sticky top-0 bg-white/80 backdrop-blur-md">
 		<div class="flex gap-10 items-center">
 			<a class="w-9 h-9 hover:bg-gray-200 flex items-center justify-center rounded-full -ml-2"
 				href="{{ url()->previous() }}">

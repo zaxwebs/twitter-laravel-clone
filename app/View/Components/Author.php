@@ -7,24 +7,26 @@ use Illuminate\View\Component;
 class Author extends Component
 {
 	public $user;
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct($user)
-    {
-        //
+	public $stacked;
+	/**
+	 * Create a new component instance.
+	 *
+	 * @return void
+	 */
+	public function __construct($user, $stacked = flase)
+	{
+		//
 		$this->user = $user;
-    }
+		$this->stacked = $stacked;
+	}
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
-    {
-        return view('components.author');
-    }
+	/**
+	 * Get the view / contents that represent the component.
+	 *
+	 * @return \Illuminate\Contracts\View\View|\Closure|string
+	 */
+	public function render()
+	{
+		return view('components.author');
+	}
 }
