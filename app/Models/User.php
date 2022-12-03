@@ -40,6 +40,7 @@ class User extends Authenticatable
 	 */
 	protected $casts = [
 		'email_verified_at' => 'datetime',
+		'created_at' => 'date:F Y'
 	];
 
 	public function tweets()

@@ -46,7 +46,7 @@
 		<div class="mb-3">{{ $user->bio }}</div>
 		<div style="font-size: 15px;" class="mb-3 text-gray-500">
 			<div class=" flex gap-0.5 items-center">
-				<x-feathericon-calendar class="h-4" /> <span>Joined March 2007</span>
+				<x-feathericon-calendar class="h-4" /> <span>Joined {{ $user->toArray()['created_at'] }}</span>
 			</div>
 		</div>
 		<div class="flex gap-5 text-sm">
