@@ -44,7 +44,9 @@
 			@endif
 		</div>
 		<div class="text-gray-500 mb-3">{{ '@' . $user->username }}</div>
-		<div class="mb-3">{{ $user->bio }}</div>
+		<div class="mb-3">
+			<x-user.bio :user="$user" />
+		</div>
 		<div style="font-size: 15px;" class="mb-3 text-gray-500">
 			<div class=" flex gap-0.5 items-center">
 				<x-feathericon-calendar class="h-4" /> <span>Joined {{ $user->toArray()['created_at'] }}</span>
