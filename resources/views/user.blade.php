@@ -20,21 +20,7 @@
 	<div class="p-4">
 		<div class="flex mb-3 justify-between">
 			<x-d-p class="border-4 border-white -mt-20" :image="$user->display_picture" size="32" />
-			@if(auth()->id() !== $user->id)
-			<form method="POST" action="{{ route('follow', ['user' => $user]) }}">
-				@csrf
-				@if(auth()->user() !== null && auth()->user()->isFollowing($user))
-				<button type="submit" class="font-semibold px-4 py-1.5 rounded-full border">
-					Following
-				</button>
-				@else
-				<button type="submit"
-					class="bg-black hover:bg-gray-800 text-white font-semibold px-4 py-1.5 rounded-full">
-					Follow
-				</button>
-				@endif
-			</form>
-			@endif
+			<x-follows-button :user="$user" />
 		</div>
 		<div class="font-bold flex gap-x-1 items-center">
 			<span class="text-xl">{{ $user->name }}</span>

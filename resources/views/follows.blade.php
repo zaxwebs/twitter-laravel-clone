@@ -1,4 +1,23 @@
 <x-bottom-bar-layout>
+	@php
+	$route_name = request()->route()->getName();
+	@endphp
+	<div class="flex border-b">
+		<a href="{{ route('user.followers', ['user' => $user])  }}"
+			class="grow flex justify-center hover:bg-gray-200 {{ $route_name == 'user.followers' ? 'font-semibold' : 'font-medium text-gray-500' }}">
+			<div>
+				<div class="py-3">Followers</div>
+				<div class="rounded h-1 {{ $route_name == 'user.followers' ? 'bg-sky-500' : null}}"></div>
+			</div>
+		</a>
+		<a href="{{ route('user.following', ['user' => $user])  }}" class="grow flex items-center justify-center hover:bg-gray-200 {{ $route_name == 'user.following' ? 'font-semibold' :
+			'font-medium text-gray-500' }}">
+			<div>
+				<div class="py-3">Following</div>
+				<div class="rounded h-1 {{ $route_name == 'user.following' ? 'bg-sky-500' : null}}"></div>
+			</div>
+		</a>
+	</div>
 	@foreach ($users as $user)
 	<div class="p-4 border-b">
 		<div class="flex gap-x-3">
