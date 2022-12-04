@@ -8,16 +8,18 @@ class Author extends Component
 {
 	public $user;
 	public $stacked;
+	public $followers;
 	/**
 	 * Create a new component instance.
 	 *
 	 * @return void
 	 */
-	public function __construct($user, $stacked = false)
+	public function __construct($user, $stacked = false, $followers = null)
 	{
 		//
 		$this->user = $user;
 		$this->stacked = $stacked;
+		$this->followers = $followers ? $followers : collect();
 	}
 
 	/**

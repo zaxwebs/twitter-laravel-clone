@@ -14,7 +14,6 @@
 				</div>
 				<div style="font-size: 13px;" class="text-gray-500 -mt-0.5">370.4K Tweets</div>
 			</div>
-
 		</div>
 	</div>
 	<img class="object-cover bg-gray-300 aspect-[3/1] w-full" src="{{ asset($user->cover_image) }}" />
