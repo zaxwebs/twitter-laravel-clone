@@ -24,8 +24,11 @@ Route::get('/', function () {
 });
 
 Route::get('/area51', function () {
-	$x = User::find(1)->following;
-	dd($x);
+	$x = User::find(1);
+	$y = User::find(2);
+	// dd($x->following);
+	// dd($x->following()->where('followed_id', $y->id)->get());
+	dd($x->following()->where('followed_id', 21)->exists());
 	return view('area51', compact('x'));
 })->name('area51');
 

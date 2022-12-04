@@ -18,8 +18,8 @@ class FollowController extends Controller
 			$currentUser->following()->detach($user);
 		} else {
 			$follow = new Follow;
-			$follow->user_id = $currentUser->id;
-			$follow->followed_user_id = $user->id;
+			$follow->follower_id = $currentUser->id;
+			$follow->followed_id = $user->id;
 			$follow->save();
 		}
 

@@ -8,7 +8,7 @@
 				</a>
 			</div>
 			<div class="grow">
-				<x-author :user="$user" />
+				<x-author :user="$user" stacked="false" />
 				{{ $user->bio }}
 			</div>
 		</div>
