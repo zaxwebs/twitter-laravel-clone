@@ -25,11 +25,12 @@
 			<form method="POST" action="{{ route('follow', ['user' => $user]) }}">
 				@csrf
 				@if(auth()->user() !== null && auth()->user()->isFollowing($user))
-				<button class="font-semibold px-4 py-1.5 rounded-full border">
+				<button type="submit" class="font-semibold px-4 py-1.5 rounded-full border">
 					Following
 				</button>
 				@else
-				<button class="bg-black hover:bg-gray-800 text-white font-semibold px-4 py-1.5 rounded-full">
+				<button type="submit"
+					class="bg-black hover:bg-gray-800 text-white font-semibold px-4 py-1.5 rounded-full">
 					Follow
 				</button>
 				@endif

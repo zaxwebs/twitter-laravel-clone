@@ -63,6 +63,11 @@ class User extends Authenticatable
 		return $this->following()->where('followed_id', $user->id)->exists();
 	}
 
+	public function follows(User $user)
+	{
+		return $this->followers->contains($user);
+	}
+
 	public function mentions()
 	{
 		return $this->morphMany(Mention::class, 'mentionnable');
