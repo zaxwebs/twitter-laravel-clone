@@ -10,8 +10,7 @@
 			<div class="grow">
 				<div class="flex items-center justify-between">
 					<x-author :user="$user" stacked="false" />
-					<x-follows-button :user="$user"
-						:following="auth()->check() ? auth()->user->following : collect()" />
+					<x-follows-button :user="$user" :following="auth()->user->following ?? collect()" />
 				</div>
 
 				{{ $user->bio }}
