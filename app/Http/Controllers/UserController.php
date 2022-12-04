@@ -85,4 +85,16 @@ class UserController extends Controller
 	{
 		//
 	}
+
+	public function followers(User $user)
+	{
+		$users = $user->followers;
+		return view('follows', compact('users'));
+	}
+
+	public function following(User $user)
+	{
+		$users = $user->following;
+		return view('follows', compact('users'));
+	}
 }

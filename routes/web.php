@@ -50,5 +50,5 @@ require __DIR__ . '/auth.php';
 
 
 Route::get('/{user:username}', [UserController::class, 'show'])->name('user.show');
-Route::get('/{user:username}/followers', [UserController::class, 'show'])->name('user.followers');
-Route::get('/{user:username}/following', [UserController::class, 'show'])->name('user.following');
+Route::get('/{user:username}/followers', [UserController::class, 'followers'])->name('user.followers');
+Route::get('/{user:username}/following', [UserController::class, 'following'])->name('user.following');
