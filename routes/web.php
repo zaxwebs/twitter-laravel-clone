@@ -7,9 +7,6 @@ use App\Http\Controllers\FollowController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\User;
-use App\Models\Tweet;
-use App\Models\Mention;
-use App\Models\Hashtag;
 
 /*
 |--------------------------------------------------------------------------

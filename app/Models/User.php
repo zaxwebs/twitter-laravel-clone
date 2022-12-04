@@ -50,22 +50,22 @@ class User extends Authenticatable
 
 	public function following()
 	{
-		return $this->belongsToMany(User::class, 'follows', 'user_id', 'followed_user_id');
+		return $this->belongsToMany(User::class, 'follows', 'follower_id', 'followed_id');
 	}
 
 	public function followers()
 	{
-		return $this->belongsToMany(User::class, 'follows', 'followed_user_id', 'user_id');
+		return $this->belongsToMany(User::class, 'follows', 'followed_id', 'follower_id');
 	}
 
 	public function isFollowing(User $user)
 	{
-		return !!$this->following()->where('followed_user_id', $user->id)->count();
+		return !!$this->following()->where('followed_id', $user->id)->count();
 	}
 
 	public function isFollowedBy(User $user)
 	{
-		return !!$this->followers()->where('user_id', $user->id)->count();
+		return !!$this->followers()->where('follower_id', $user->id)->count();
 	}
 
 	public function mentions()

@@ -123,8 +123,8 @@ class DatabaseSeeder extends Seeder
 			foreach ($users->random(rand(6, 15)) as $followed_user) {
 				$date = Carbon::now()->subDays(rand(0, 4))->format('Y-m-d H:i:s');
 				$follows[] = [
-					'user_id' => $user->id,
-					'followed_user_id' => $followed_user->id,
+					'follower_id' => $user->id,
+					'followed_id' => $followed_user->id,
 					'created_at' => $date,
 					'updated_at' => $date
 				];
