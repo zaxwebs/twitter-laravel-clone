@@ -2,7 +2,9 @@
 
 namespace App\View\Components;
 
+use App\Models\User;
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
 
 class Author extends Component
 {
@@ -14,12 +16,12 @@ class Author extends Component
 	 *
 	 * @return void
 	 */
-	public function __construct($user, $stacked = false, $followers = null)
+	public function __construct(User $user, bool $stacked = false, ? Collection $followers = null)
 	{
 		//
 		$this->user = $user;
 		$this->stacked = $stacked;
-		$this->followers = $followers ? $followers : collect();
+		$this->followers = $followers ?? collect();
 	}
 
 	/**

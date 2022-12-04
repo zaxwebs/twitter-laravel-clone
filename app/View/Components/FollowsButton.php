@@ -8,17 +8,19 @@ use Illuminate\View\Component;
 class FollowsButton extends Component
 {
 	public $user;
-	public $following;
+	public $isFollowing = false;
 	/**
 	 * Create a new component instance.
 	 *
 	 * @return void
 	 */
-	public function __construct(User $user, $following)
+	public function __construct(User $user)
 	{
 		//
 		$this->user = $user;
-		$this->following = $following;
+		if (auth()->check()) {
+			$this->isFollowing = auth()->user()->following->contains($user);
+		}
 	}
 
 	/**

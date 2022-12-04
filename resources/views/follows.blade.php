@@ -11,9 +11,8 @@
 				<div class="flex items-center justify-between">
 					<x-author :user="$user" stacked="false"
 						:followers="auth()->check() ? auth()->user()->followers: collect()" />
-					<x-follows-button :user="$user" :following="auth()->user()->following ?? collect()" />
+					<x-follows-button :user="$user" />
 				</div>
-
 				{{ $user->bio }}
 			</div>
 		</div>
