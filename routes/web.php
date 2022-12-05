@@ -3,12 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FollowController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\User;
-use App\Models\Tweet;
-use App\Models\Mention;
-use App\Models\Hashtag;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,28 +20,38 @@ use App\Models\Hashtag;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::get('/area51', function () {
-	$tweets = Tweet::latest()->limit(40)->with(['user', 'tweets' => ['user']])->get();
-    return view('area51')->with('tweets', $tweets);
+	$x = User::find(1);
+	$y = User::find(2);
+	// dd($x->following);
+	// dd($x->following()->where('followed_id', $y->id)->get());
+	dd($x->following()->where('followed_id', 21)->exists());
+	return view('area51', compact('x'));
 })->name('area51');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+	return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+	Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+	Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+	Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-require __DIR__.'/auth.php';
+Route::middleware('auth')->group(function () {
+	Route::post('/follow/{user:username}', [FollowController::class, 'toggleFollow'])->name('follow');
+});
+
+
+require __DIR__ . '/auth.php';
+
 
 Route::get('/{user:username}', [UserController::class, 'show'])->name('user.show');
-
-
+Route::get('/{user:username}/followers', [UserController::class, 'followers'])->name('user.followers');
+Route::get('/{user:username}/following', [UserController::class, 'following'])->name('user.following');

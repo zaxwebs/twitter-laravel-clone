@@ -1,27 +1,22 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\User;
 
 use App\Models\User;
 use Illuminate\View\Component;
-use Illuminate\Support\Collection;
 
-class Author extends Component
+class NameMark extends Component
 {
 	public $user;
-	public $stacked;
-	public $followers;
 	/**
 	 * Create a new component instance.
 	 *
 	 * @return void
 	 */
-	public function __construct(User $user, bool $stacked = false, ? Collection $followers = null)
+	public function __construct(User $user)
 	{
 		//
 		$this->user = $user;
-		$this->stacked = $stacked;
-		$this->followers = $followers ?? collect();
 	}
 
 	/**
@@ -31,6 +26,6 @@ class Author extends Component
 	 */
 	public function render()
 	{
-		return view('components.author');
+		return view('components.user.name-mark');
 	}
 }
