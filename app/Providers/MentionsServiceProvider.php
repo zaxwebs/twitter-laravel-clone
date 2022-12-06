@@ -20,6 +20,8 @@ class MentionsServiceProvider extends ServiceProvider
 			return "<?php echo App\Providers\MentionsServiceProvider::parse_mentions($expression); ?>";
 		});
 	}
+
+	//TODO: fix regex
 	public static function parse_mentions($text)
 	{
 		// Use a regular expression to find hashtags in the text
