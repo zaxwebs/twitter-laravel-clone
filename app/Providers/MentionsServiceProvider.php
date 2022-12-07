@@ -26,6 +26,7 @@ class MentionsServiceProvider extends ServiceProvider
 
 	// TODO: Enhance regex to match that of Twitter's
 	// TODO: Escape HTML
+	
 	public static function parse_mentions($text)
 	{
 		preg_match_all(self::$hashtag_pattern, $text, $hashtags);
