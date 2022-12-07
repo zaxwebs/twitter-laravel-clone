@@ -27,7 +27,6 @@ class MentionsServiceProvider extends ServiceProvider
 	//TODO: enhance regex to match that of Twitter's
 	public static function parse_mentions($text)
 	{
-		$text = e($text);
 		preg_match_all(self::$hashtag_pattern, $text, $hashtags);
 		// Replace each hashtag with a link to a search page for that hashtag
 		foreach ($hashtags[1] as $hashtag) {
@@ -35,8 +34,7 @@ class MentionsServiceProvider extends ServiceProvider
 			$text = str_replace('#' . $hashtag, '<a class="text-sky" href="' . $searchUrl . '">#' . $hashtag . '</a>', $text);
 		}
 		// Use a regular expression to find @ mentions in the text
-		$pattern = '/@([A-Za-z0-9_]+)/';
-		preg_match_all($pattern, $text, $mentions);
+		preg_match_all(self::$mention_pattern, $text, $mentions);
 		// Replace each @ mention with a link to the user's profile page
 		foreach ($mentions[1] as $mention) {
 			$profileUrl = url('/' . $mention);
