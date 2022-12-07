@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\FollowController;
-use Illuminate\Support\Facades\Route;
-
 use App\Models\User;
+use Database\Seeders\Helpers\Tweet;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\FollowController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +25,9 @@ Route::get('/', function () {
 });
 
 Route::get('/area51', function () {
-	$x = User::find(1);
-	$y = User::find(2);
-	// dd($x->following);
-	// dd($x->following()->where('followed_id', $y->id)->get());
-	dd($x->following()->where('followed_id', 21)->exists());
-	return view('area51', compact('x'));
+	$tweet = new Tweet;
+	dd($tweet->generateTweetMeta($tweet->getPreparedTweet('zack')));
+	return view('area51');
 })->name('area51');
 
 Route::get('/dashboard', function () {
