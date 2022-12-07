@@ -25,7 +25,6 @@ class MentionsServiceProvider extends ServiceProvider
 	}
 
 	// TODO: Enhance regex to match that of Twitter's
-	// TODO: Fix # matching when there are hashtags that start with same characters
 	// TODO: Escape HTML
 	public static function parse_mentions($text)
 	{
