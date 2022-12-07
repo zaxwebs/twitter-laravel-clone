@@ -1,6 +1,6 @@
 <x-bottom-bar-layout>
-	<div class="px-4 py-2 flex items-center sticky top-0 bg-white/80 backdrop-blur-md">
-		<div class="flex gap-10 items-center">
+	<x-top-bar>
+		<div class="flex gap-10 items-center px-4 py-2 ">
 			<a class="w-9 h-9 hover:bg-gray-200 flex items-center justify-center rounded-full -ml-2"
 				href="{{ url()->previous() }}">
 				<x-feathericon-arrow-left />
@@ -8,14 +8,12 @@
 			<div>
 				<div class="font-bold flex gap-x-1 items-center">
 					<span class="text-xl">{{ $user->name }}</span>
-					@if($user->badge)
-					<x-codicon-verified-filled class="text-sky-500 h-5" />
-					@endif
+					<x-user.mark :user="$user" />
 				</div>
 				<div style="font-size: 13px;" class="text-gray-500 -mt-0.5">370.4K Tweets</div>
 			</div>
 		</div>
-	</div>
+	</x-top-bar>
 	<img class="object-cover bg-gray-300 aspect-[3/1] w-full" src="{{ asset($user->cover_image) }}" />
 	<div class="p-4">
 		<div class="flex mb-3 justify-between">
@@ -24,9 +22,7 @@
 		</div>
 		<div class="font-bold flex gap-x-1 items-center">
 			<span class="text-xl">{{ $user->name }}</span>
-			@if($user->badge)
-			<x-codicon-verified-filled class="text-sky-500 h-5" />
-			@endif
+			<x-user.mark :user="$user" />
 		</div>
 		<div class="text-gray-500 mb-3">{{ '@' . $user->username }}</div>
 		<div class="mb-3">

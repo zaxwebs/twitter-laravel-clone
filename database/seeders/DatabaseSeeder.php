@@ -9,6 +9,7 @@ use App\Models\Hashtag;
 use App\Models\Tweet;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
+use Helpers\TweetHelper;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,6 +30,27 @@ class DatabaseSeeder extends Seeder
 		$hashtags = Hashtag::factory($numbers['hashtags'])->create();
 
 		// Tweets
+		$tweet_body = [
+			"Just saw a really cool cat video on YouTube #catlovers #funnycats @YouTube",
+			"I can't believe it's already December! Time flies #december #holidays @all",
+			"I love a good cup of coffee in the morning #coffee #wakeup @Starbucks",
+			"Anyone else excited for the weekend? #friday #weekendvibes @all",
+			"I just finished a great book #reading #booklover @bookstagram",
+			"I'm so excited for the new Star Wars movie #StarWars #TheRiseOfSkywalker @Disney",
+			"Can't wait to go on vacation #travel #vacationmode @all",
+			"I just discovered the best pizza place in town #pizza #foodie @pizzalover",
+			"I love going for a run in the park #fitness #exercise @all",
+			"I'm so excited for the holiday season #holidays #christmas @all",
+			"I just got a new job! #newjob #career @all",
+			"I can't wait to go to the beach #beach #summer @all",
+			"I'm so excited to see my friends and family #friends #family @all",
+			"I love listening to music #music #favoriteartist @all",
+			"I'm so excited to try a new restaurant #food #newrestaurant @all",
+			"I love going to concerts #concerts #music @all",
+			"I'm so excited for the new season of my favorite show #tv #favorite @all",
+			"I can't wait to go on a road trip #roadtrip #travel @all",
+			"I'm so excited to try a new hobby #hobbies #newbeginnings @all",
+		];
 
 		$tweets = [];
 		$files = collect(File::files(public_path('seeder/photos')));
