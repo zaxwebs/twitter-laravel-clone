@@ -8,9 +8,7 @@
 			<div>
 				<div class="font-bold flex gap-x-1 items-center">
 					<span class="text-xl">{{ $user->name }}</span>
-					@if($user->badge)
-					<x-codicon-verified-filled class="text-sky-500 h-5" />
-					@endif
+					<x-user.mark :user="$user" />
 				</div>
 				<div style="font-size: 13px;" class="text-gray-500 -mt-0.5">370.4K Tweets</div>
 			</div>
@@ -24,9 +22,7 @@
 		</div>
 		<div class="font-bold flex gap-x-1 items-center">
 			<span class="text-xl">{{ $user->name }}</span>
-			@if($user->badge)
-			<x-codicon-verified-filled class="text-sky-500 h-5" />
-			@endif
+			<x-user.mark :user="$user" />
 		</div>
 		<div class="text-gray-500 mb-3">{{ '@' . $user->username }}</div>
 		<div class="mb-3">

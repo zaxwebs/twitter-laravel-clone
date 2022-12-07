@@ -30,7 +30,7 @@ class MentionsServiceProvider extends ServiceProvider
 		// Replace each hashtag with a link to a search page for that hashtag
 		foreach ($hashtags[1] as $hashtag) {
 			$searchUrl = url('search?query=%23' . $hashtag);
-			$text = str_replace('#' . $hashtag, '<a href="' . $searchUrl . '">#' . $hashtag . '</a>', $text);
+			$text = str_replace('#' . $hashtag, '<a class="text-twitter" href="' . $searchUrl . '">#' . $hashtag . '</a>', $text);
 		}
 		// Use a regular expression to find @ mentions in the text
 		$pattern = '/@([A-Za-z0-9_]+)/';
@@ -38,7 +38,7 @@ class MentionsServiceProvider extends ServiceProvider
 		// Replace each @ mention with a link to the user's profile page
 		foreach ($mentions[1] as $mention) {
 			$profileUrl = url('/' . $mention);
-			$text = str_replace('@' . $mention, '<a href="' . $profileUrl . '">@' . $mention . '</a>', $text);
+			$text = str_replace('@' . $mention, '<a class="text-twitter" href="' . $profileUrl . '">@' . $mention . '</a>', $text);
 		}
 		return $text;
 	}
