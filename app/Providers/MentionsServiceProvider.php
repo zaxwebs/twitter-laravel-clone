@@ -24,7 +24,7 @@ class MentionsServiceProvider extends ServiceProvider
 		});
 	}
 
-	// TODO: enhance regex to match that of Twitter's
+	// TODO: Enhance regex to match that of Twitter's
 	// TODO: Escape HTML
 	public static function parse_mentions($text)
 	{
