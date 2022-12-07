@@ -30,7 +30,7 @@
 			</div>
 			@endif
 			<div class="flex justify-between mt-2 text-gray-500">
-				<div class="flex gap-4 items-center hover:text-sky-500">
+				<div class="flex gap-4 items-center hover:text-sky">
 					<x-feathericon-message-square class="h-4 w-4" />
 					<span class="text-sm">{{ rand(2,20) }}</span>
 				</div>
@@ -42,7 +42,7 @@
 					<x-feathericon-heart class="h-4 w-4" />
 					<span class="text-sm">{{ rand(2,20) }}</span>
 				</div>
-				<div class="flex gap-4 items-center hover:text-sky-500">
+				<div class="flex gap-4 items-center hover:text-sky">
 					<x-feathericon-share class="h-4 w-4" />
 				</div>
 			</div>

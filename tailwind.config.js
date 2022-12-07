@@ -15,7 +15,7 @@ module.exports = {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
-			twitter: {
+			sky: {
 				DEFAULT: '#1D9BF0',
 				'50': '#C9E7FB',
 				'100': '#B6DFFA',
