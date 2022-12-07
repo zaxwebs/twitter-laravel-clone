@@ -29,19 +29,17 @@ class MentionsServiceProvider extends ServiceProvider
 	// TODO: Escape HTML
 	public static function parse_mentions($text)
 	{
-		preg_match_all(self::$hashtag_pattern, $text, $hashtags);
+		
 		// Replace each hashtag with a link to a search page for that hashtag
-		foreach ($hashtags[1] as $hashtag) {
-			$searchUrl = url('search?q=' . $hashtag);
-			$text = str_replace('#' . $hashtag, '<a class="text-sky" href="' . $searchUrl . '">#' . $hashtag . '</a>', $text);
-		}
-		// Use a regular expression to find @ mentions in the text
-		preg_match_all(self::$mention_pattern, $text, $mentions);
+		// preg_match_all(self::$hashtag_pattern, $text, $hashtags);
+		// foreach ($hashtags[1] as $hashtag) {
+		// 	...
+		// }
+		$text = preg_replace(self::$hashtag_pattern, '<a class="text-sky" href="'. url('search/?q=$1').'">#$1</a>', $text);  
+
 		// Replace each @ mention with a link to the user's profile page
-		foreach ($mentions[1] as $mention) {
-			$profileUrl = url('/' . $mention);
-			$text = str_replace('@' . $mention, '<a class="text-sky" href="' . $profileUrl . '">@' . $mention . '</a>', $text);
-		}
+		$text = preg_replace(self::$mention_pattern, '<a class="text-sky" href="'. url('/$1').'">@$1</a>', $text);  
+
 		return $text;
 	}
 
