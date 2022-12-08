@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
 	<!-- Scripts -->
+	<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
 	@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
