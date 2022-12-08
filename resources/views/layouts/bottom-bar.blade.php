@@ -1,5 +1,7 @@
 <x-main-layout>
-	{{ $slot }}
+	<div class="grow">
+		{{ $slot }}
+	</div>
 	<div class="px-4 flex items-center sticky bottom-0 bg-white border-t border-gray-100 text-2xl justify-around">
 		<a href="{{ route('home') }}" class="p-3">
 			@if(request()->route()->getName() == 'home')
