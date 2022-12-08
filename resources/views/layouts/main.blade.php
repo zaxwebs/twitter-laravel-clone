@@ -16,10 +16,18 @@
 	@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="flex justify-center bg-slate-100">
-	<div style="max-width: 500px" class="w-full font-sans text-gray-900 bg-white min-h-screen flex flex-col">
+<body class="flex justify-center bg-slate-100 font-sans text-gray-900">
+	<div style="max-width: 500px;" class="w-full  bg-white min-h-screen flex flex-col">
 		{{ $slot }}
+
 	</div>
+	<div style="max-width: 500px;" class="w-full h-screen fixed">
+		<a href="#" style="transform: translateX(-4px);"
+			class="flex items-center justify-center text-white bg-sky h-14 w-14 rounded-full drop-shadow-md absolute  bottom-20 right-4">
+			<x-feathericon-feather class="h-7" />
+		</a>
+	</div>
+
 </body>
 
 </html>

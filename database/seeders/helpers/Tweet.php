@@ -9,7 +9,7 @@ class Tweet
 	public $tweet_templates = [
 		"Just got back from a long day at the #office, feeling exhausted but accomplished. #hustle",
 		"Can't believe it's already Friday! Time flies when you're having fun. #weekendvibes",
-		"Bought tickets to a concert I'm super excited about! ⚡️",
+		"Guys, I just bought tickets to a pop concert I'm super excited about! ⚡️",
 		"Brunch with #friends is the best way to start the day. #avocadotoast",
 		"Finished a tough workout, feeling strong and energized. #fitnessmotivation",
 		"Tried a new recipe for dinner tonight and it turned out amazing. #cookingisfun",
@@ -37,7 +37,7 @@ class Tweet
 		"Just finished a long #run and feeling great 🥳. Love the feeling of pushing myself. #runnershigh",
 		"Had a great day #exploring a new city. So much to see and do. #cityexplorer",
 		"Started a new job and I'm loving it. Feeling grateful and excited for the future. #newjobnewadventures",
-		"🎯The only way to do great work is to love what you do.",
+		"🎯 The only way to do great work is to love what you do.",
 		"Success is not final, failure is not fatal: It is the courage to continue that counts.",
 		"The only limit to our realization of tomorrow will be our doubts of today.",
 		"If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.",
