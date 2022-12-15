@@ -4,8 +4,8 @@ namespace Database\Seeders\Helpers;
 
 class Tweet
 {
-	public $hashtag_pattern = "/#(\w+)/";
-	public $mention_pattern = "/@(\w+)/";
+	public $hashtag_pattern = config('regex.hashtag');
+	public $mention_pattern = config('regex.mention');
 	public $tweet_templates = [
 		"Just got back from a long day at the #office, feeling exhausted but accomplished. #hustle",
 		"Can't believe it's already Friday! Time flies when you're having fun. #weekendvibes",
@@ -61,7 +61,7 @@ class Tweet
 		return $this->replaceUsername($tweet_template, $username);
 	}
 
-	public function generateTweetMeta($tweet)
+	public function extractTweetMeta($tweet)
 	{
 		// Initialize empty arrays for hashtags and mentions
 		$hashtags = array();
