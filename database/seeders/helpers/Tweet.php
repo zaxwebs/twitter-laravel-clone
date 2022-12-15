@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Helpers;
+namespace App\Database\Seeders\Helpers;
 
 class Tweet
 {
@@ -59,22 +59,5 @@ class Tweet
 		$tweet_templates = $this->tweet_templates;
 		$tweet_template = $tweet_templates[array_rand($tweet_templates)];
 		return $this->replaceUsername($tweet_template, $username);
-	}
-
-	public function extractTweetMeta($tweet)
-	{
-		// Initialize empty arrays for hashtags and mentions
-		$hashtags = array();
-		$mentions = array();
-
-		// Use regular expressions to extract hashtags and mentions from the tweet text
-		preg_match_all($this->hashtag_pattern, $tweet, $hashtags);
-		preg_match_all($this->mention_pattern, $tweet, $mentions);
-
-		// Return the tweet array
-		return array(
-			"hashtags" => $hashtags[1],
-			"mentions" => $mentions[1]
-		);
 	}
 }

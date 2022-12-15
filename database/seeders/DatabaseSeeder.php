@@ -9,7 +9,7 @@ use App\Models\Hashtag;
 use App\Models\Tweet;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
-use Database\Seeders\Helpers\Tweet as TweetHelper;
+use App\Database\Seeders\Helpers\Tweet as TweetHelper;
 
 class DatabaseSeeder extends Seeder
 {

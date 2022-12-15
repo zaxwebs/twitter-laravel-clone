@@ -7,7 +7,7 @@
 		</div>
 		<div class="grow">
 			<x-author :user="$user" />
-			<div>@mentions($body)</div>
+			<div>@parseTweet($body)</div>
 			@if ($image)
 			<img style="max-height: 510px" class="w-full rounded-2xl mt-3 border object-cover object-right"
 				src="{{ asset($image) }}" />
@@ -21,7 +21,7 @@
 						</a>
 						<x-author :user="$tweet->user" />
 					</div>
-					<div>@mentions($tweet->body)</div>
+					<div>@parseTweet($tweet->body)</div>
 				</div>
 				@if ($tweet->image)
 				<img style="max-height: 510px" class="w-full object-cover object-right"

@@ -185,7 +185,7 @@ return [
 			/*
 			 * Custom Service Providers...
 			 */
-		App\Providers\MentionsServiceProvider::class,
+		App\Providers\TweetServiceProvider::class,
 	],
 	/*
 	|--------------------------------------------------------------------------

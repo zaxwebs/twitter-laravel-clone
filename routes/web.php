@@ -1,11 +1,12 @@
 <?php
 
 use App\Models\User;
+use App\Services\TweetService;
 use Database\Seeders\Helpers\Tweet;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\ProfileController;
 
@@ -25,8 +26,8 @@ Route::get('/', function () {
 });
 
 Route::get('/area51', function () {
-	$tweet = new Tweet;
-	dd($tweet->generateTweetMeta($tweet->getPreparedTweet('zack')));
+	$tweetService = new TweetService;
+	dd($tweetService->parseTweet('Hello'));
 	return view('area51');
 })->name('area51');
 
