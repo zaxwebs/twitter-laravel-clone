@@ -1,3 +1,3 @@
-<x-main-layout>
+<x-main-layout :composer="false">
 
 </x-main-layout>
