@@ -17,11 +17,11 @@
 </head>
 
 <body class="flex justify-center bg-slate-100 font-sans text-gray-900">
-	<div style="max-width: 500px;" class="w-full  bg-white min-h-screen flex flex-col">
+	<div style="max-width: {{ config('view.max_width') }};" class="w-full  bg-white min-h-screen flex flex-col">
 		{{ $slot }}
 
 	</div>
-	<div style="max-width: 500px;" class="w-full h-screen fixed pointer-events-none">
+	<div style="max-width: {{ config('view.max_width') }};" class="w-full h-screen fixed pointer-events-none">
 		<a href="#" style="transform: translateX(-4px);"
 			class="flex items-center justify-center text-white bg-sky h-14 w-14 rounded-full drop-shadow-md absolute  bottom-20 right-4 pointer-events-auto">
 			<x-feathericon-feather class="h-7" />

@@ -15,9 +15,7 @@ class TweetServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		$this->app->singleton('tweet-service', function ($app) {
-			return new TweetService();
-		});
+
 	}
 
 	/**

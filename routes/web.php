@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TweetController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\ProfileController;
 
@@ -41,14 +42,14 @@ Route::middleware('auth')->group(function () {
 	Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+require __DIR__ . '/auth.php';
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
 	Route::post('/follow/{user:username}', [FollowController::class, 'toggleFollow'])->name('follow');
+	Route::get('/compose/tweet', [TweetController::class, 'create'])->name('tweet.create');
 });
-
-
-require __DIR__ . '/auth.php';
 
 
 Route::get('/{user:username}', [UserController::class, 'show'])->name('user.show');
