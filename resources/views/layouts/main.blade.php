@@ -23,7 +23,7 @@
 	</div>
 	@if ($composer)
 	<div style="max-width: {{ config('view.max_width') }};" class="w-full h-screen fixed pointer-events-none">
-		<a href="#" style="transform: translateX(-4px);"
+		<a href="{{ route('tweet.create') }}" style="transform: translateX(-4px);"
 			class="flex items-center justify-center text-white bg-sky h-14 w-14 rounded-full drop-shadow-md absolute  bottom-20 right-4 pointer-events-auto">
 			<x-feathericon-feather class="h-7" />
 		</a>
